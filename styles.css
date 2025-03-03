@@ -1,8 +1,7 @@
-/* styles.css */
-
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', 'Inter', 'Montserrat', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -17,6 +16,16 @@ a {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0.5em 0;
+}
+
+/* Smooth fade-in effect */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in-visible {
+    opacity: 1;
 }
 
 /* Hero Section */
@@ -35,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn {
-    background: #ff007f;
+    background: #001f3f; /* Dark blue */
     color: white;
     padding: 0.8em 2em;
     border: none;
@@ -44,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn:hover {
-    background: #e60073;
+    background: #001a35; /* Slightly darker blue */
 }
 
 /* Navigation */
@@ -55,6 +64,7 @@ nav {
     text-align: center;
     position: sticky;
     top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -74,7 +84,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ff007f;
+    color: #001f3f; /* Dark blue */
 }
 
 /* Sections */
@@ -120,14 +130,38 @@ h2 {
     gap: 1em;
 }
 
-#portfolio .portfolio-grid div {
+#portfolio .portfolio-item {
     background: #f4f4f4;
     padding: 1em;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#portfolio .portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
     transition: transform 0.3s;
 }
 
-#portfolio .portfolio-grid div:hover {
+#portfolio .portfolio-item:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#portfolio .portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+#portfolio .portfolio-item h3 {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+
+#portfolio .portfolio-item p {
+    font-size: 1em;
+    color: #555;
 }
 
 /* Services Section */
@@ -143,6 +177,8 @@ h2 {
     margin: 0.5em;
     max-width: 250px;
     text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #services .service-item i {
@@ -150,71 +186,127 @@ h2 {
     margin-bottom: 0.5em;
 }
 
+#services .service-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #001f3f; /* Dark blue */
+    color: white;
+}
+
+#services .service-item:hover i {
+    color: white;
+}
+
+#services .service-item:hover h3,
+#services .service-item:hover p {
+    color: white;
+}
+
 /* Skills Section */
 #skills .skills-content {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-#skills .skill-item {
-    background: #f4f4f4;
-    padding: 1em;
+.skill-item {
     margin: 0.5em;
-    max-width: 200px;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #001f3f; /* Dark blue */
+    color: white;
+}
+
+.skill-bar {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0.5em;
+}
+
+.skill-bar-inner {
+    height: 100%;
+    width: 0;
+    background-color: #001f3f; /* Dark blue */
+    border-radius: 10px;
+    transition: width 1s ease-in-out, background-color 0.3s;
+}
+
+.skill-bar-inner:hover {
+    background-color: #001a35; /* Slightly darker blue */
 }
 
 /* Contact Section */
-#contact form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#contact label {
-    margin-top: 1em;
-}
-
-#contact input, #contact textarea {
-    padding: 0.5em;
-    margin-top: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#contact button {
-    background: #ff007f;
-    color: white;
-    padding: 1em;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 1em;
-}
-
-#contact button:hover {
-    background: #e60073;
-}
-
-/* Social Media Links */
-.social-media {
+#contact .contact-details {
     display: flex;
     justify-content: center;
-    margin-top: 1em;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
 }
 
-.social-media a {
-    margin: 0 0.5em;
-    font-size: 1.5em;
+#contact .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2em;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#contact .contact-item i {
+    font-size: 4em; /* Increased font size for larger icons */
+    margin-bottom: 0.5em;
     color: #333;
+}
+
+#contact .contact-item p {
+    margin: 0;
+    font-size: 1.1em; /* Slightly larger text */
+}
+
+#contact .contact-item a {
+    color: inherit;
+    text-decoration: none;
     transition: color 0.3s;
 }
 
-.social-media a:hover {
-    color: #ff007f;
+#contact .contact-item a:hover {
+    color: #001f3f; /* Dark blue */
+}
+
+#contact .social-media {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
+
+#contact .social-media a {
+    margin: 0 1.5em; /* Increased spacing between icons */
+    font-size: 2.5em; /* Increased font size for larger icons */
+    color: #333;
+    transition: color 0.3s, background 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Increased size of the circle */
+    height: 60px; /* Increased size of the circle */
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+#contact .social-media a:hover {
+    color: #001f3f; /* Dark blue */
+    background: #f4f4f4;
+    transform: scale(1.1);
 }
 
 /* Footer */
@@ -226,17 +318,33 @@ footer {
 }
 
 footer .back-to-top {
-    color: #ff007f;
+    color: #001f3f; /* Dark blue */
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, opacity 0.3s;
+    opacity: 0;
+}
+
+footer .back-to-top.visible {
+    opacity: 1;
 }
 
 footer .back-to-top:hover {
-    color: #e60073;
+    color: #001a35; /* Slightly darker blue */
 }
 
 /* Animations */
 @keyframes fadeIn {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Hover Effects for Sections */
+.hover-section:hover {
+    background-color: #e8e8e8;
+    transition: background-color 0.3s;
 }
