@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f8f9fa; /* Light gray background for a clean look */
+    color: #333; /* Default text color */
 }
 
 a {
@@ -16,6 +18,15 @@ a {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0.5em 0;
+}
+
+/* Primary Colors */
+:root {
+    --primary-color: #0d6efd; /* Modern blue */
+    --secondary-color: #6c757d; /* Muted gray for secondary elements */
+    --accent-color: #ffc107; /* Warm yellow for accents */
+    --light-bg-color: #f8f9fa; /* Light background color */
+    --dark-bg-color: #343a40; /* Dark background color */
 }
 
 /* Smooth fade-in effect */
@@ -44,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn {
-    background: #001f3f; /* Dark blue */
+    background: var(--primary-color);
     color: white;
     padding: 0.8em 2em;
     border: none;
@@ -53,19 +64,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn:hover {
-    background: #001a35; /* Slightly darker blue */
+    background: darken(var(--primary-color), 10%);
 }
 
 /* Navigation */
 nav {
-    background: #333;
-    color: white;
+    background: var(--dark-bg-color);
+    color: var(--light-bg-color);
     padding: 1em 0;
     text-align: center;
+    position: -webkit-sticky; /* For Safari */
     position: sticky;
     top: 0;
+    z-index: 1000; /* Ensure it stays above other elements */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 nav ul {
     list-style: none;
@@ -84,7 +98,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #001f3f; /* Dark blue */
+    color: var(--accent-color);
 }
 
 /* Sections */
@@ -131,7 +145,7 @@ h2 {
 }
 
 #portfolio .portfolio-item {
-    background: #f4f4f4;
+    background: var(--light-bg-color);
     padding: 1em;
     transition: transform 0.3s, box-shadow 0.3s;
     border-radius: 8px;
@@ -172,7 +186,7 @@ h2 {
 }
 
 #services .service-item {
-    background: #f4f4f4;
+    background: var(--light-bg-color);
     padding: 1em;
     margin: 0.5em;
     max-width: 250px;
@@ -189,7 +203,7 @@ h2 {
 #services .service-item:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #001f3f; /* Dark blue */
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -218,7 +232,7 @@ h2 {
 .skill-item:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #001f3f; /* Dark blue */
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -235,13 +249,13 @@ h2 {
 .skill-bar-inner {
     height: 100%;
     width: 0;
-    background-color: #001f3f; /* Dark blue */
+    background-color: var(--primary-color);
     border-radius: 10px;
     transition: width 1s ease-in-out, background-color 0.3s;
 }
 
 .skill-bar-inner:hover {
-    background-color: #001a35; /* Slightly darker blue */
+    background-color: darken(var(--primary-color), 10%);
 }
 
 /* Contact Section */
@@ -262,14 +276,14 @@ h2 {
 }
 
 #contact .contact-item i {
-    font-size: 4em; /* Increased font size for larger icons */
+    font-size: 4em;
     margin-bottom: 0.5em;
-    color: #333;
+    color: var(--secondary-color);
 }
 
 #contact .contact-item p {
     margin: 0;
-    font-size: 1.1em; /* Slightly larger text */
+    font-size: 1.1em;
 }
 
 #contact .contact-item a {
@@ -279,7 +293,7 @@ h2 {
 }
 
 #contact .contact-item a:hover {
-    color: #001f3f; /* Dark blue */
+    color: var(--primary-color);
 }
 
 #contact .social-media {
@@ -290,61 +304,70 @@ h2 {
 }
 
 #contact .social-media a {
-    margin: 0 1.5em; /* Increased spacing between icons */
-    font-size: 2.5em; /* Increased font size for larger icons */
-    color: #333;
+    margin: 0 1.5em;
+    font-size: 2.5em;
+    color: var(--secondary-color);
     transition: color 0.3s, background 0.3s, transform 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px; /* Increased size of the circle */
-    height: 60px; /* Increased size of the circle */
-    border: 2px solid #333;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--secondary-color);
     border-radius: 50%;
 }
 
 #contact .social-media a:hover {
-    color: #001f3f; /* Dark blue */
-    background: #f4f4f4;
+    color: var(--primary-color);
+    background: var(--light-bg-color);
     transform: scale(1.1);
 }
 
 /* Footer */
 footer {
-    background: #333;
+    background: var(--dark-bg-color);
     color: white;
     text-align: center;
     padding: 1em 0;
 }
 
 footer .back-to-top {
-    color: #001f3f; /* Dark blue */
+    color: var(--primary-color);
     text-decoration: none;
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    padding: 0.5em;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: color 0.3s, opacity 0.3s;
-    opacity: 0;
-}
-
-footer .back-to-top.visible {
     opacity: 1;
+    z-index: 1000;
 }
 
 footer .back-to-top:hover {
-    color: #001a35; /* Slightly darker blue */
-}
+    color: darken(var(--primary-color), 10%);
+} 
 
 /* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.fade-in {
+.scroll-animation {
     opacity: 0;
-    animation: fadeIn 1s forwards;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Hover Effects for Sections */
-.hover-section:hover {
-    background-color: #e8e8e8;
-    transition: background-color 0.3s;
+.scroll-animation.visible {
+    animation: fadeInUp 0.6s forwards;
 }
+
