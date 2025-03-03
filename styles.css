@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Primary Colors */
 :root {
-    --primary-color: #0d6efd; /* Modern blue */
+    --primary-color: #04107b; /* Modern blue */
     --secondary-color: #6c757d; /* Muted gray for secondary elements */
     --accent-color: #ffc107; /* Warm yellow for accents */
     --light-bg-color: #f8f9fa; /* Light background color */
@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 #hero {
-    background: url('https://i.ibb.co/jP3HgPJQ/download.jpg') no-repeat center center/cover;
+    background: url('https://i.ibb.co/0RHQS6vJ/imw-637-imh-358-ima-fit-impolicy-Letterbox-imcolor-000000-letterbox-true.gif') no-repeat center center/cover;
     color: white;
     height: 100vh;
     display: flex;
